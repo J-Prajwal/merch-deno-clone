@@ -5,7 +5,7 @@ import { MdKeyboardBackspace } from "react-icons/md";
 
 import NextSEO from "../../components/NextSEO";
 import ProductDetails from "../../components/ProductDetails";
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { getProductAPI, getProductsAPI } from "@/redux/product/product.api";
 import { Product } from "@/utils/types";
 
@@ -65,8 +65,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext<ProductDetailProps>
-  ) => {
+export const getStaticProps: GetStaticProps = async (ctx: any) => {
   const id: any = ctx.params?.id;
   const data = await getProductAPI(id || "");
 
