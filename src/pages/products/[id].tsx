@@ -60,7 +60,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const data = await getProductsAPI();
 
   return {
-    paths: data.map((product) => ({ params: { id: String(product.id) } })),
+    paths: data.map((product: Product) => ({ params: { id: String(product.id) } })),
     fallback: false,
   };
 };
